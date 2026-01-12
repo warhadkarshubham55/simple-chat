@@ -1,5 +1,94 @@
 # Simple Chat
 
+## 📁 Project Structure
+
+```text
+simple-chat/
+│
+├── Cargo.toml
+├── README.md
+│
+├── src/
+│   ├── main.rs        # Application entry point
+│   ├── server.rs      # Chat server logic + unit tests
+│   └── client.rs      # Async CLI client
+│
+└── tests/
+    └── simple_chat_test.rs   # Integration tests (TCP-based)
+```
+
+## Prerequisites
+Ensure you have Rust and Cargo installed:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf [https://sh.rustup.rs](https://sh.rustup.rs) | sh
+```
+
+## 🚀 How to Run
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/warhadkarshubham55/simple-chat.git
+cd simple-chat
+```
+
+---
+
+### 2️⃣ Run the Server
+
+```bash
+cargo run -- server 127.0.0.1:8080
+```
+
+### 3️⃣ Run the Client (in another terminal)
+
+```bash
+cargo run -- client 127.0.0.1 8080 client1
+```
+
+Open another terminal and start a second client:
+
+```bash
+cargo run -- client 127.0.0.1 8080 client2
+```
+
+---
+
+## 💬 Client Commands
+
+```text
+send Hello everyone!
+leave
+```
+
+- `send <message>` → sends message to the chat room
+- `leave` → disconnects and exits client
+
+---
+
+## 🧪 Testing
+
+### ✔ Integration Tests
+
+- Located in `tests/simple_chat_test.rs`
+- Use real TCP connections
+- Validate end-to-end behavior
+
+Run all tests:
+
+```bash
+cargo test
+```
+
+Run only integration tests:
+
+```bash
+cargo test --test simple_chat_test
+```
+
+---
+
 ## Summary
 
 You have been tasked with writing a simple asynchronous chat server and CLI
