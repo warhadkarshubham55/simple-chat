@@ -69,7 +69,6 @@ async fn leave_removes_user_from_room() {
     alice.write_all(b"LEAVE\n").await.unwrap();
     sleep(Duration::from_millis(50)).await;
 
-    
     bob.write_all(b"MSG Are you there?\n").await.unwrap();
 
     let mut buffer = [0u8; 128];
